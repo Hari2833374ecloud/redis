@@ -3,7 +3,7 @@ app:
     code: REDIS
     notify: hkrishnan@ecloudcontrol.com
 build:
-    version: 6.2
+    version: 3.2
     env: DEV
     build_file: none
     output_files: output/*.zip
