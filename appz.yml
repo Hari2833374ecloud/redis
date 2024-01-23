@@ -14,7 +14,7 @@ deploy:
     replicas: 1
     type: statefulset
     port:
-    - 6379
+    - 9121
     
 volumes:
   - claim: redis-data
