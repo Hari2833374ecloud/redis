@@ -13,20 +13,27 @@ deploy:
     context: Hari2833374ecloud/DEV
     replicas: 1
     type: statefulset
+    ingress: none
     port:
     - 6379
     - 9121
     
 volumes:
   - claim: redis-data
-    mount: /data
+    mount: /appz/data
     name: data
-    size: 10Gi
+    size: 5Gi
+  - claim: redis-backup
+    mount: /appz/backup
+    name: backup
+    size: 1Gi
     
 properties:
+    
+    AUTH: False
+    REDIS_PASSWORD: 
+        vault: REDIS_PASSWORD
     REDIS_DEFAULT_PASSWD:
-       vault: REDISDEFAULTPASSWD
-    REDIS_USER_NAME: APPZ
-    REDIS_USER_PASSWD: 
-       vault: REDISPASSWD
-    revision : 22
+        vault: REDIS_DEFAULT_PASSWD
+    REDIS_MAXMEMORY: 6gb
+    revision : 07
